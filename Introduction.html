@@ -1,0 +1,668 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Introduction &#8212; edep-sim Interface for SuperaAtomic</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quick Start" href="QuickStart.html" />
+    <link rel="prev" title="edep2supera" href="index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/done.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">edep-sim Interface for SuperaAtomic</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    edep2supera
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  edep2supera
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="QuickStart.html">
+   Quick Start
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Output.html">
+   Output
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="HowItWorks.html">
+   How It Works
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/DeepLearnPhysics/edep2supera/master?urlpath=tree/Introduction.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/DeepLearnPhysics/edep2supera/blob/master/Introduction.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/DeepLearnPhysics/edep2supera"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/DeepLearnPhysics/edep2supera/issues/new?title=Issue%20on%20page%20%2FIntroduction.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Introduction.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/Introduction.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pre-requisites">
+   Pre-requisites
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#software-stack">
+     Software stack
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#edep-sim-file">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       edep-sim
+      </span>
+     </code>
+     file
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#for-developers">
+   For developers
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#superaatomic-installation">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       SuperaAtomic
+      </span>
+     </code>
+     Installation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#edep2supera-installation">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       edep2supera
+      </span>
+     </code>
+     Installation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Introduction</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pre-requisites">
+   Pre-requisites
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#software-stack">
+     Software stack
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#edep-sim-file">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       edep-sim
+      </span>
+     </code>
+     file
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#for-developers">
+   For developers
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#superaatomic-installation">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       SuperaAtomic
+      </span>
+     </code>
+     Installation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#edep2supera-installation">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       edep2supera
+      </span>
+     </code>
+     Installation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">edep2supera</span></code> is a software tool developed for the DUNE near detector (DUNE-ND) collaboration.</p>
+<p>Before starting, it is useful to agree-on / introduce some concepts to be on the same page!</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">lartpc_mlreco3d</span></code> is a machine learning (ML) based data reconstruction chain. The goal of <code class="docutils literal notranslate"><span class="pre">edep2supera</span></code> is to provide information necessary, called “<em>labels</em>”, to optimize ML algorithms in <code class="docutils literal notranslate"><span class="pre">lartpc_mlreco3d</span></code> so that it can be used for the DUNE-ND data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">edep2supera</span></code> requires input data that is produced from DUNE-ND simulation workflow. In particular, <code class="docutils literal notranslate"><span class="pre">edep2supera</span></code> is designed to take data files generated by <code class="docutils literal notranslate"><span class="pre">edep-sim</span></code> in the diagram below.</p></li>
+</ul>
+<p><img alt="Simulation Workflow" src="_images/simulation_workflow.png" /></p>
+<p>Ultimately <code class="docutils literal notranslate"><span class="pre">lartpc_mlreco3d</span></code> should be trained with <code class="docutils literal notranslate"><span class="pre">larnd-sim</span></code> output files which include realistic detector effects. The value of <code class="docutils literal notranslate"><span class="pre">edep2supera</span></code> is to provide:</p>
+<ol class="simple">
+<li><p>put a foundation of generating labels to optimize the reconstruction chain</p></li>
+<li><p>a benchmark of the reconstruction algorithms without detector effects</p></li>
+</ol>
+<p>In particular, 1 is critical to ensure interpretation of simulated information is correct. This validation allows us to compare the known performance of the reconstruction chain that is trained on the equivalent stage of a simulation (i.e. without detector effects), which has been used to validate the label generation process across experiments.</p>
+<section id="pre-requisites">
+<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this headline">#</a></h2>
+<p>There are two key points to be aware: how to setup the software stack and how to run <code class="docutils literal notranslate"><span class="pre">edep-sim</span></code> in a way that is compatible with <code class="docutils literal notranslate"><span class="pre">edep2supera</span></code>.</p>
+<section id="software-stack">
+<h3>Software stack<a class="headerlink" href="#software-stack" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">edep2supera</span></code> requires <code class="docutils literal notranslate"><span class="pre">larcv2</span></code> and <code class="docutils literal notranslate"><span class="pre">SuperaAtomic</span></code> to be installed and built. We strongly recommend users to use a Docker or Singularity software containers prepared by the maintainers of <code class="docutils literal notranslate"><span class="pre">edep2supera</span></code>.</p>
+</section>
+<section id="edep-sim-file">
+<h3><code class="docutils literal notranslate"><span class="pre">edep-sim</span></code> file<a class="headerlink" href="#edep-sim-file" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">edep2supera</span></code> (and underlying algorithms) assumes <code class="docutils literal notranslate"><span class="pre">edep-sim</span></code> is run in a certain way to maximize the level of details (and thus amount of) simulation information stored. In particular, when you run <code class="docutils literal notranslate"><span class="pre">edep-sim</span></code>, please make sure to include these lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">edep</span><span class="o">/</span><span class="n">hitSeparation</span> <span class="n">TPCActive_shape</span> <span class="o">-</span><span class="mi">1</span> <span class="n">mm</span>
+<span class="o">/</span><span class="n">edep</span><span class="o">/</span><span class="n">hitSagitta</span> <span class="n">drift</span> <span class="mf">1.0</span> <span class="n">mm</span>
+<span class="o">/</span><span class="n">edep</span><span class="o">/</span><span class="n">hitLength</span> <span class="n">drift</span> <span class="mf">1.0</span> <span class="n">mm</span>
+<span class="o">/</span><span class="n">edep</span><span class="o">/</span><span class="n">db</span><span class="o">/</span><span class="nb">set</span><span class="o">/</span><span class="n">neutronThreshold</span> <span class="mi">0</span> <span class="n">MeV</span>
+<span class="o">/</span><span class="n">edep</span><span class="o">/</span><span class="n">db</span><span class="o">/</span><span class="nb">set</span><span class="o">/</span><span class="n">lengthThreshold</span> <span class="mi">0</span> <span class="n">mm</span>
+<span class="o">/</span><span class="n">edep</span><span class="o">/</span><span class="n">db</span><span class="o">/</span><span class="nb">set</span><span class="o">/</span><span class="n">gammaThreshold</span> <span class="mi">0</span> <span class="n">MeV</span>
+<span class="o">/</span><span class="n">edep</span><span class="o">/</span><span class="n">random</span><span class="o">/</span><span class="n">timeRandomSeed</span>
+<span class="o">/</span><span class="n">edep</span><span class="o">/</span><span class="n">update</span>
+</pre></div>
+</div>
+<p>The most critical nature required (and enabled above) is that a generated trajectory segment (i.e. <code class="docutils literal notranslate"><span class="pre">TG4HitSegment</span></code> if you wonder) is not shared by multiple particles, and is always asssigned to a unique particle. This helps to disambiguate energy depositions that are otherwise mixed between particles.</p>
+</section>
+</section>
+<section id="for-developers">
+<h2>For developers<a class="headerlink" href="#for-developers" title="Permalink to this headline">#</a></h2>
+<p>If you are to develop the code, most likely you would want to install <code class="docutils literal notranslate"><span class="pre">SuperaAtomic</span></code> and <code class="docutils literal notranslate"><span class="pre">edep2supera</span></code>. We recommend you to use the same container described above, then locally install the developer version of these softwares.</p>
+<section id="superaatomic-installation">
+<h3><code class="docutils literal notranslate"><span class="pre">SuperaAtomic</span></code> Installation<a class="headerlink" href="#superaatomic-installation" title="Permalink to this headline">#</a></h3>
+<p>The command below will build and install <code class="docutils literal notranslate"><span class="pre">SuperaAtomic</span></code> to your local area (<code class="docutils literal notranslate"><span class="pre">$HOME/.local</span></code>) which is prioritized over the pre-installed one under the system path.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">DeepLearnPhysics</span><span class="o">/</span><span class="n">SuperaAtomic</span>
+<span class="n">cd</span> <span class="n">SuperaAtomic</span>
+<span class="n">export</span> <span class="n">SUPERA_WITHOUT_PYTHON</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">python3</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span>
+</pre></div>
+</div>
+<p>Note you want to set <code class="docutils literal notranslate"><span class="pre">SUPERA_WITHOUT_PYTHON=1</span></code>. Without specifying this, <code class="docutils literal notranslate"><span class="pre">SuperaAtomic</span></code> will be built with <code class="docutils literal notranslate"><span class="pre">pybind11</span></code> which would be incompatible with <code class="docutils literal notranslate"><span class="pre">edep2supera</span></code>. Don’t worry: <code class="docutils literal notranslate"><span class="pre">SuperaAtomic</span></code> will still be usable in Python after you build <code class="docutils literal notranslate"><span class="pre">edep2supera</span></code>.</p>
+<p>In development, after you modify your code, simply repeat:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span>
+</pre></div>
+</div>
+<p>(and perhaps you may also have to re-install <code class="docutils literal notranslate"><span class="pre">edep2supera</span></code> if C++ dependent source code has changed).</p>
+</section>
+<section id="edep2supera-installation">
+<h3><code class="docutils literal notranslate"><span class="pre">edep2supera</span></code> Installation<a class="headerlink" href="#edep2supera-installation" title="Permalink to this headline">#</a></h3>
+<p>Similarly, below is how you can install <code class="docutils literal notranslate"><span class="pre">edep2supera</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">DeepLearnPhysics</span><span class="o">/</span><span class="n">edep2supera</span>
+<span class="n">cd</span> <span class="n">edep2supera</span>
+<span class="n">python3</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span>
+</pre></div>
+</div>
+<p>After you modify the source code, again simply try:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "DeepLearnPhysics/edep2supera",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="index.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">edep2supera</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="QuickStart.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Quick Start</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By SLAC Neutrino Group<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

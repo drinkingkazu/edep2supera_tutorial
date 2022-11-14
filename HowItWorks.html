@@ -1,0 +1,1075 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>How it works &#8212; edep-sim Interface for SuperaAtomic</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Understanding the Output" href="Output.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/done.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">edep-sim Interface for SuperaAtomic</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    edep2supera
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  edep2supera
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="QuickStart.html">
+   Quick Start
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Output.html">
+   Output
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   How It Works
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/DeepLearnPhysics/edep2supera/master?urlpath=tree/HowItWorks.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/DeepLearnPhysics/edep2supera/blob/master/HowItWorks.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/DeepLearnPhysics/edep2supera"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/DeepLearnPhysics/edep2supera/issues/new?title=Issue%20on%20page%20%2FHowItWorks.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/HowItWorks.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/HowItWorks.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instantiate-and-configure">
+   Instantiate and Configure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reading-and-preparing-input">
+   Reading and Preparing Input
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-supera">
+   Running Supera
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accessing-and-interpreting-the-input">
+   Accessing and Interpreting the Input
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accessing-and-interpreting-the-ouput">
+   Accessing and Interpreting the Ouput
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>How it works</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instantiate-and-configure">
+   Instantiate and Configure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reading-and-preparing-input">
+   Reading and Preparing Input
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-supera">
+   Running Supera
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accessing-and-interpreting-the-input">
+   Accessing and Interpreting the Input
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accessing-and-interpreting-the-ouput">
+   Accessing and Interpreting the Ouput
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="how-it-works">
+<h1>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this headline">#</a></h1>
+<p>In this article we go over how <code class="docutils literal notranslate"><span class="pre">edep2supera</span></code> works focusing on 5 points below.</p>
+<ol class="simple">
+<li><p>Instantiate and configure the module</p></li>
+<li><p>Prepare the input</p></li>
+<li><p>Execute the main functions</p></li>
+<li><p>Interpreting the input</p></li>
+<li><p>Interpreting the output</p></li>
+</ol>
+<p>The first three items show the flow of processes to run <code class="docutils literal notranslate"><span class="pre">Supera</span></code> with <code class="docutils literal notranslate"><span class="pre">edep-sim</span></code> files as input. Then the last two items demonstrate how a user can access the input to and the output from <code class="docutils literal notranslate"><span class="pre">Supera</span></code>.</p>
+<section id="instantiate-and-configure">
+<h2>Instantiate and Configure<a class="headerlink" href="#instantiate-and-configure" title="Permalink to this headline">#</a></h2>
+<p>Import <code class="docutils literal notranslate"><span class="pre">edep2supera</span></code> as well as an example module.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">edep2supera</span>
+<span class="kn">from</span> <span class="nn">edep2supera</span> <span class="kn">import</span> <span class="n">example</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Welcome to JupyROOT 6.22/09
+</pre></div>
+</div>
+</div>
+</div>
+<p>Instantiate and configure <code class="docutils literal notranslate"><span class="pre">SuperaDriver</span></code> for execution of <code class="docutils literal notranslate"><span class="pre">edep2supera</span></code> main functions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instantiate</span>
+<span class="n">e2s_driver</span> <span class="o">=</span> <span class="n">edep2supera</span><span class="o">.</span><span class="n">edep2supera</span><span class="o">.</span><span class="n">SuperaDriver</span><span class="p">()</span>
+
+<span class="c1"># Configure the driver</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">example</span><span class="o">.</span><span class="n">get_config</span><span class="p">(</span><span class="s1">&#39;edep2supera&#39;</span><span class="p">)</span>
+<span class="n">e2s_driver</span><span class="o">.</span><span class="n">Configure</span><span class="p">(</span><span class="s2">&quot;edep2supera&quot;</span><span class="p">,</span><span class="n">cfg</span><span class="p">)</span>
+
+<span class="c1"># Configure the bounding box algorithm</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">example</span><span class="o">.</span><span class="n">get_config</span><span class="p">(</span><span class="s1">&#39;bbox&#39;</span><span class="p">)</span>
+<span class="n">e2s_driver</span><span class="o">.</span><span class="n">ConfigureBBoxAlgorithm</span><span class="p">(</span><span class="s2">&quot;BBoxInteraction&quot;</span><span class="p">,</span> <span class="n">cfg</span><span class="p">)</span>
+
+<span class="c1"># Configure the label creation algorithm</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">example</span><span class="o">.</span><span class="n">get_config</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">)</span>
+<span class="n">e2s_driver</span><span class="o">.</span><span class="n">ConfigureLabelAlgorithm</span><span class="p">(</span><span class="s2">&quot;LArTPCMLReco3D&quot;</span><span class="p">,</span> <span class="n">cfg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What’s going on?</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SuperaDriver</span></code> is the <em>driver</em> of executing main functions of <code class="docutils literal notranslate"><span class="pre">edep2supera</span></code></p>
+<ul class="simple">
+<li><p>A technical detail: it is a wrapper (i.e. C++ inheritance) of <code class="docutils literal notranslate"><span class="pre">supera::Driver</span></code> defined in <code class="docutils literal notranslate"><span class="pre">SuperaAtomic</span></code>.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SuperaDriver</span></code> needs three configurations including</p>
+<ul class="simple">
+<li><p>one for itself (<code class="docutils literal notranslate"><span class="pre">SuperaDriver.Configure</span></code>), and two algorithms:</p></li>
+<li><p>one for creating the meta data of the 3D image volume to be recorded</p></li>
+<li><p>another for interpreting the input and creating necessary information to optimize <code class="docutils literal notranslate"><span class="pre">lartpc_mlreco3d</span></code></p></li>
+</ul>
+</li>
+<li><p>Configuration is done by passing a set of parameters. Individual parameter is stored as a key-value pair. For instance, “DeltaSize” (key) and “3” (value). <code class="docutils literal notranslate"><span class="pre">SuperaDriver</span></code> accepts these parameters stored in a container of a type <code class="docutils literal notranslate"><span class="pre">std::map&lt;string,string&gt;</span></code>.</p>
+<ul class="simple">
+<li><p>In the above, we use <code class="docutils literal notranslate"><span class="pre">example</span></code> module that can provide example configurations for this tutorial.</p></li>
+</ul>
+</li>
+</ol>
+<p>We don’t go over the full details of the configuration parameters nor the details of the algorithms. For those, refer to the documentation of <code class="docutils literal notranslate"><span class="pre">SuperaAtomic</span></code>. We show how to dump the content for the <code class="docutils literal notranslate"><span class="pre">SuperaDriver</span></code> configuration below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">example</span><span class="o">.</span><span class="n">get_config</span><span class="p">(</span><span class="s1">&#39;edep2supera&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">val</span> <span class="ow">in</span> <span class="n">cfg</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;key: </span><span class="si">%s</span><span class="se">\n</span><span class="s1">   - value: </span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="n">val</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>key: ActiveDetectors
+   - value: [TPCActive_shape]
+
+key: LogLevel
+   - value: WARNING
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="reading-and-preparing-input">
+<h2>Reading and Preparing Input<a class="headerlink" href="#reading-and-preparing-input" title="Permalink to this headline">#</a></h2>
+<p>Download an example dataset for this tutorial.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget https://web.stanford.edu/~kterao/edep-sim-example.root
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2022-11-14 10:53:11--  https://web.stanford.edu/~kterao/edep-sim-example.root
+Resolving web.stanford.edu (web.stanford.edu)... 171.67.215.200, 2607:f6d0:0:925a::ab43:d7c8
+Connecting to web.stanford.edu (web.stanford.edu)|171.67.215.200|:443... connected.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HTTP request sent, awaiting response... 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 OK
+Length: 6604072 (6.3M)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving to: &#39;edep-sim-example.root.2&#39;
+
+
+edep-sim-example.ro   0%[                    ]       0  --.-KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>edep-sim-example.ro   8%[&gt;                   ] 552.00K  2.63MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>edep-sim-example.ro  24%[===&gt;                ]   1.52M  3.74MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>edep-sim-example.ro  40%[=======&gt;            ]   2.52M  4.15MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>edep-sim-example.ro  62%[===========&gt;        ]   3.91M  4.81MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>edep-sim-example.ro  87%[================&gt;   ]   5.51M  5.41MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>edep-sim-example.ro 100%[===================&gt;]   6.30M  5.65MB/s    in 1.1s    
+
+2022-11-14 10:53:13 (5.65 MB/s) - &#39;edep-sim-example.root.2&#39; saved [6604072/6604072]
+</pre></div>
+</div>
+</div>
+</div>
+<p>This file is generated by (=is an output of) <code class="docutils literal notranslate"><span class="pre">edep-sim</span></code>, which can be easily accessible through <code class="docutils literal notranslate"><span class="pre">ROOT.TChain</span></code>. If there are multiple input files, they can be sequentially added using <code class="docutils literal notranslate"><span class="pre">TChain.Add</span></code> function. To run Supera, we need to:</p>
+<ol class="simple">
+<li><p>Read one event input from the <code class="docutils literal notranslate"><span class="pre">edep-sim</span></code> output file</p></li>
+<li><p>Interpret <code class="docutils literal notranslate"><span class="pre">edep-sim</span></code> data and generate a formatted input data to run <code class="docutils literal notranslate"><span class="pre">Supera</span></code></p>
+<ul class="simple">
+<li><p>This (= being an interface to <code class="docutils literal notranslate"><span class="pre">edep-sim</span></code> file) is exactly why <code class="docutils literal notranslate"><span class="pre">edep2supera</span></code> exists.</p></li>
+</ul>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use TChain to read edep-sim</span>
+<span class="kn">from</span> <span class="nn">ROOT</span> <span class="kn">import</span> <span class="n">TChain</span> 
+<span class="n">ch</span><span class="o">=</span><span class="n">TChain</span><span class="p">(</span><span class="s2">&quot;EDepSimEvents&quot;</span><span class="p">)</span>
+<span class="n">ch</span><span class="o">.</span><span class="n">AddFile</span><span class="p">(</span><span class="s1">&#39;shower.root&#39;</span><span class="p">)</span>
+
+<span class="c1"># Access the first (0-th) input data sample</span>
+<span class="n">ch</span><span class="o">.</span><span class="n">GetEntry</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Interpret the edep-sim input by handing TG4Event containing all info for this sample.</span>
+<span class="n">input_data</span> <span class="o">=</span> <span class="n">e2s_driver</span><span class="o">.</span><span class="n">ReadEvent</span><span class="p">(</span><span class="n">ch</span><span class="o">.</span><span class="n">Event</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_38953</span><span class="o">/</span><span class="mf">2807589348.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> 
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># Interpret the edep-sim input by handing TG4Event containing all info for this sample.</span>
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">input_data</span> <span class="o">=</span> <span class="n">e2s_driver</span><span class="o">.</span><span class="n">ReadEvent</span><span class="p">(</span><span class="n">ch</span><span class="o">.</span><span class="n">Event</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;TChain&#39; object has no attribute &#39;Event&#39;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error in &lt;TFile::TFile&gt;: file shower.root does not exist
+Error in &lt;TFile::TFile&gt;: file shower.root does not exist
+Error in &lt;TFile::TFile&gt;: file shower.root does not exist
+Error in &lt;TFile::TFile&gt;: file shower.root does not exist
+Error in &lt;TFile::TFile&gt;: file shower.root does not exist
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="running-supera">
+<h2>Running Supera<a class="headerlink" href="#running-supera" title="Permalink to this headline">#</a></h2>
+<p>… is done over two steps.</p>
+<ul class="simple">
+<li><p>First, <code class="docutils literal notranslate"><span class="pre">GenerateImageMeta</span></code> generates an image meta data.</p></li>
+<li><p>Second, <code class="docutils literal notranslate"><span class="pre">GenerateLabel</span></code> generates the main output, infomration necessary for optimizing <code class="docutils literal notranslate"><span class="pre">lartpc_mlreco3d</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate image meta data</span>
+<span class="n">e2s_driver</span><span class="o">.</span><span class="n">GenerateImageMeta</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
+
+<span class="c1"># Generate infomration necessary for lartpc_mlreco3d</span>
+<span class="n">e2s_driver</span><span class="o">.</span><span class="n">GenerateLabel</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
+
+<span class="c1"># Access the image meta and output of Supera</span>
+<span class="n">meta</span>  <span class="o">=</span> <span class="n">e2s_driver</span><span class="o">.</span><span class="n">Meta</span><span class="p">()</span>
+<span class="n">label</span> <span class="o">=</span> <span class="n">e2s_driver</span><span class="o">.</span><span class="n">Label</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_38953</span><span class="o">/</span><span class="mf">2016153090.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Generate image meta data</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">e2s_driver</span><span class="o">.</span><span class="n">GenerateImageMeta</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Generate infomration necessary for lartpc_mlreco3d</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">e2s_driver</span><span class="o">.</span><span class="n">GenerateLabel</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;input_data&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="accessing-and-interpreting-the-input">
+<h2>Accessing and Interpreting the Input<a class="headerlink" href="#accessing-and-interpreting-the-input" title="Permalink to this headline">#</a></h2>
+<p>Let’s take a brief look at the <code class="docutils literal notranslate"><span class="pre">input_data</span></code> which is of <code class="docutils literal notranslate"><span class="pre">supera::EventInput</span></code> type (C++ class defined in <code class="docutils literal notranslate"><span class="pre">SuperaAtomic</span></code>). In short, <code class="docutils literal notranslate"><span class="pre">input_data</span></code> is an array of particle information.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Input contains&#39;</span><span class="p">,</span><span class="n">input_data</span><span class="o">.</span><span class="n">size</span><span class="p">(),</span><span class="s1">&#39;particles&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_38953</span><span class="o">/</span><span class="mf">881766402.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Input contains&#39;</span><span class="p">,</span><span class="n">input_data</span><span class="o">.</span><span class="n">size</span><span class="p">(),</span><span class="s1">&#39;particles&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;input_data&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each particle has two essential data elements:</p>
+<ol class="simple">
+<li><p>Information about this particle</p></li>
+<li><p>A list of energy deposition 3D points with energy deposited and dE/dX at each point</p></li>
+</ol>
+<p>Let’s access the former first.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the track ID and PDG code for the first 10 particles stored in the list</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">input_data</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span> <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Index&#39;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;Track ID&#39;</span><span class="p">,</span><span class="n">p</span><span class="o">.</span><span class="n">part</span><span class="o">.</span><span class="n">trackid</span><span class="p">,</span><span class="s1">&#39;PDG&#39;</span><span class="p">,</span><span class="n">p</span><span class="o">.</span><span class="n">part</span><span class="o">.</span><span class="n">pdg</span><span class="p">)</span>
+    
+<span class="c1"># Dump the details of the first particle</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Dumping information about the first particle...</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">input_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">part</span><span class="o">.</span><span class="n">dump</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_38953</span><span class="o">/</span><span class="mf">651147691.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Print the track ID and PDG code for the first 10 particles stored in the list</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">input_data</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span> <span class="k">break</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Index&#39;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;Track ID&#39;</span><span class="p">,</span><span class="n">p</span><span class="o">.</span><span class="n">part</span><span class="o">.</span><span class="n">trackid</span><span class="p">,</span><span class="s1">&#39;PDG&#39;</span><span class="p">,</span><span class="n">p</span><span class="o">.</span><span class="n">part</span><span class="o">.</span><span class="n">pdg</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="ne">NameError</span>: name &#39;input_data&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that not all information may be filled at this point, in particular various “ID” (except for Track ID which is aleady determined by the previous simulation step <code class="docutils literal notranslate"><span class="pre">edep-sim</span></code>).</p>
+<p>Next, let’s access energy deposition points.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">particle</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There are&#39;</span><span class="p">,</span><span class="n">particle</span><span class="o">.</span><span class="n">pcloud</span><span class="o">.</span><span class="n">size</span><span class="p">(),</span><span class="s1">&#39;points&#39;</span><span class="p">)</span>
+
+<span class="c1"># Create a list of points</span>
+<span class="n">points</span> <span class="o">=</span> <span class="p">[[</span><span class="n">pt</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">e</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">dedx</span><span class="p">]</span> <span class="k">for</span> <span class="n">pt</span> <span class="ow">in</span> <span class="n">particle</span><span class="o">.</span><span class="n">pcloud</span><span class="p">]</span>
+<span class="c1"># ... and turn that into a numpy array (so we can slice)</span>
+<span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+
+<span class="c1"># Create a scatter plot</span>
+<span class="n">trace</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter3d</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">points</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">points</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">z</span><span class="o">=</span><span class="n">points</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span>
+                     <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span>
+                     <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">points</span><span class="p">[:,</span><span class="mi">3</span><span class="p">],</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.3</span><span class="p">),</span>
+                    <span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">trace</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_38953</span><span class="o">/</span><span class="mf">3451068997.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">particle</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There are&#39;</span><span class="p">,</span><span class="n">particle</span><span class="o">.</span><span class="n">pcloud</span><span class="o">.</span><span class="n">size</span><span class="p">(),</span><span class="s1">&#39;points&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+
+<span class="ne">NameError</span>: name &#39;input_data&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>… or plot all points togetehr</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">points_array</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">particle</span> <span class="ow">in</span> <span class="n">input_data</span><span class="p">:</span>
+
+    <span class="n">points</span> <span class="o">=</span> <span class="p">[[</span><span class="n">pt</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">e</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">dedx</span><span class="p">]</span> <span class="k">for</span> <span class="n">pt</span> <span class="ow">in</span> <span class="n">particle</span><span class="o">.</span><span class="n">pcloud</span><span class="p">]</span>
+    
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span> <span class="k">continue</span>
+    
+    <span class="n">points_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">points</span><span class="p">))</span>
+
+<span class="c1"># Concatenate a list of points for all particles</span>
+<span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">points_array</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total:&#39;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">),</span><span class="s1">&#39;points&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">points</span><span class="p">[:,</span><span class="mi">3</span><span class="p">]),</span><span class="s1">&#39; MeV for&#39;</span><span class="p">,</span><span class="n">input_data</span><span class="o">.</span><span class="n">size</span><span class="p">(),</span><span class="s1">&#39;particles&#39;</span><span class="p">)</span>
+
+<span class="c1"># Create a scatter plot with associated energy in MeV as hovertext</span>
+<span class="n">trace</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter3d</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">points</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">points</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">z</span><span class="o">=</span><span class="n">points</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span>
+                     <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span>
+                     <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">points</span><span class="p">[:,</span><span class="mi">3</span><span class="p">],</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.3</span><span class="p">),</span>
+                     <span class="n">hovertext</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;</span><span class="si">%f</span><span class="s1"> MeV&#39;</span> <span class="o">%</span> <span class="n">pt</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="k">for</span> <span class="n">pt</span> <span class="ow">in</span> <span class="n">points</span><span class="p">]</span>                      
+                    <span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">trace</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_38953</span><span class="o">/</span><span class="mf">2237358194.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">points_array</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="k">for</span> <span class="n">particle</span> <span class="ow">in</span> <span class="n">input_data</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">points</span> <span class="o">=</span> <span class="p">[[</span><span class="n">pt</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">e</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">dedx</span><span class="p">]</span> <span class="k">for</span> <span class="n">pt</span> <span class="ow">in</span> <span class="n">particle</span><span class="o">.</span><span class="n">pcloud</span><span class="p">]</span>
+
+<span class="ne">NameError</span>: name &#39;input_data&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>… or distinguishing each particle by a color? Let’s only plot particles with some size.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">plotly</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">qualitative</span><span class="o">.</span><span class="n">Light24</span>
+
+<span class="n">traces</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">minimum_point_count</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="k">for</span> <span class="n">particle</span> <span class="ow">in</span> <span class="n">input_data</span><span class="p">:</span>
+
+    <span class="n">points</span> <span class="o">=</span> <span class="p">[[</span><span class="n">pt</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">e</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">dedx</span><span class="p">]</span> <span class="k">for</span> <span class="n">pt</span> <span class="ow">in</span> <span class="n">particle</span><span class="o">.</span><span class="n">pcloud</span><span class="p">]</span>
+    
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">minimum_point_count</span><span class="p">:</span> <span class="k">continue</span>
+        
+    <span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+    <span class="n">color</span>  <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">particle</span><span class="o">.</span><span class="n">part</span><span class="o">.</span><span class="n">trackid</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">)]</span>
+        
+    <span class="n">traces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter3d</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">points</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="o">=</span><span class="n">points</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">z</span><span class="o">=</span><span class="n">points</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span>
+                               <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span>
+                               <span class="n">name</span><span class="o">=</span><span class="s1">&#39;TID </span><span class="si">%d</span><span class="s1"> PDG </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">particle</span><span class="o">.</span><span class="n">part</span><span class="o">.</span><span class="n">trackid</span><span class="p">,</span><span class="n">particle</span><span class="o">.</span><span class="n">part</span><span class="o">.</span><span class="n">pdg</span><span class="p">),</span>
+                               <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.3</span><span class="p">),</span>
+                               <span class="n">hovertext</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;EDep </span><span class="si">%f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">pt</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="k">for</span> <span class="n">pt</span> <span class="ow">in</span> <span class="n">points</span><span class="p">],</span>
+                              <span class="p">)</span>
+                 <span class="p">)</span>
+    
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">traces</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_38953</span><span class="o">/</span><span class="mf">3739840750.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">minimum_point_count</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="k">for</span> <span class="n">particle</span> <span class="ow">in</span> <span class="n">input_data</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> 
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">points</span> <span class="o">=</span> <span class="p">[[</span><span class="n">pt</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">e</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">dedx</span><span class="p">]</span> <span class="k">for</span> <span class="n">pt</span> <span class="ow">in</span> <span class="n">particle</span><span class="o">.</span><span class="n">pcloud</span><span class="p">]</span>
+
+<span class="ne">NameError</span>: name &#39;input_data&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="accessing-and-interpreting-the-ouput">
+<h2>Accessing and Interpreting the Ouput<a class="headerlink" href="#accessing-and-interpreting-the-ouput" title="Permalink to this headline">#</a></h2>
+<p>The output is defined and created by <code class="docutils literal notranslate"><span class="pre">SuperaAtomic</span></code> and there is nothing specific about <code class="docutils literal notranslate"><span class="pre">edep2supera</span></code>. But we can look at a few examples.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Overall energy deposition is stored in _energies attribute</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">label</span><span class="o">.</span><span class="n">_energies</span>
+
+<span class="c1"># data is VoxelSet type, essentially an array of voxel ID and value = energy.</span>
+<span class="c1"># We need to take an extra step to translate each voxel ID into XYZ coordinate</span>
+<span class="n">xyz</span> <span class="o">=</span> <span class="p">[</span><span class="n">meta</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="n">vox</span><span class="o">.</span><span class="n">id</span><span class="p">())</span> <span class="k">for</span> <span class="n">vox</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">as_vector</span><span class="p">()]</span>
+<span class="n">xyz</span> <span class="o">=</span> <span class="p">[[</span><span class="n">pt</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">z</span><span class="p">]</span> <span class="k">for</span> <span class="n">pt</span> <span class="ow">in</span> <span class="n">xyz</span><span class="p">]</span>
+<span class="n">xyz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span>
+
+<span class="n">energy</span> <span class="o">=</span> <span class="p">[</span><span class="n">vox</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="k">for</span> <span class="n">vox</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">as_vector</span><span class="p">()]</span>
+<span class="n">energy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">energy</span><span class="p">)</span>
+
+<span class="n">trace</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter3d</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">xyz</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="o">=</span><span class="n">xyz</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">z</span><span class="o">=</span><span class="n">xyz</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span>
+                     <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span>
+                     <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">energy</span><span class="p">,</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.3</span><span class="p">),</span>
+                    <span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">trace</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_38953</span><span class="o">/</span><span class="mf">734976015.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Overall energy deposition is stored in _energies attribute</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">data</span> <span class="o">=</span> <span class="n">label</span><span class="o">.</span><span class="n">_energies</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># data is VoxelSet type, essentially an array of voxel ID and value = energy.</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># We need to take an extra step to translate each voxel ID into XYZ coordinate</span>
+
+<span class="ne">NameError</span>: name &#39;label&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Perhaps let’s access something unique to the output. An example is a <em>semantic label</em>, which is discrete categorization of pixel types. In the below example we ignore pixels of a type <code class="docutils literal notranslate"><span class="pre">kShapeLEScatter</span></code> which represents many small fragments of energy depositions. This allows us to more easily see the trunk of a shower.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ROOT</span> <span class="kn">import</span> <span class="n">supera</span>
+
+<span class="c1"># semantic data is stored in an attribute _semanticLabels</span>
+<span class="c1"># It is of VoxelSet type just like _energies.</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">label</span><span class="o">.</span><span class="n">_semanticLabels</span>
+
+<span class="n">semantic</span> <span class="o">=</span> <span class="p">[</span><span class="n">vox</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="k">for</span> <span class="n">vox</span> <span class="ow">in</span> <span class="n">label</span><span class="o">.</span><span class="n">_semanticLabels</span><span class="o">.</span><span class="n">as_vector</span><span class="p">()]</span>
+<span class="n">semantic</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">semantic</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+
+<span class="c1"># Create a pixel mask</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="p">(</span><span class="n">semantic</span><span class="o">==</span><span class="n">supera</span><span class="o">.</span><span class="n">kShapeLEScatter</span><span class="p">))</span>
+<span class="c1"># Use the same points (xyz and energy) but apply a mask</span>
+<span class="n">trace</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter3d</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">xyz</span><span class="p">[</span><span class="n">mask</span><span class="p">][:,</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="o">=</span><span class="n">xyz</span><span class="p">[</span><span class="n">mask</span><span class="p">][:,</span><span class="mi">1</span><span class="p">],</span><span class="n">z</span><span class="o">=</span><span class="n">xyz</span><span class="p">[</span><span class="n">mask</span><span class="p">][:,</span><span class="mi">2</span><span class="p">],</span>
+                     <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span>
+                     <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">energy</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.3</span><span class="p">),</span>
+                    <span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">trace</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_38953</span><span class="o">/</span><span class="mf">2970451059.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># semantic data is stored in an attribute _semanticLabels</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># It is of VoxelSet type just like _energies.</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">data</span> <span class="o">=</span> <span class="n">label</span><span class="o">.</span><span class="n">_semanticLabels</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">semantic</span> <span class="o">=</span> <span class="p">[</span><span class="n">vox</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="k">for</span> <span class="n">vox</span> <span class="ow">in</span> <span class="n">label</span><span class="o">.</span><span class="n">_semanticLabels</span><span class="o">.</span><span class="n">as_vector</span><span class="p">()]</span>
+
+<span class="ne">NameError</span>: name &#39;label&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can construct the same view from individual particle information that is also stored in the output. Each particle also stores a semantic type.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">traces</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">particle</span> <span class="ow">in</span> <span class="n">label</span><span class="o">.</span><span class="n">Particles</span><span class="p">():</span>
+    
+    <span class="k">if</span> <span class="n">particle</span><span class="o">.</span><span class="n">part</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">supera</span><span class="o">.</span><span class="n">kShapeLEScatter</span><span class="p">:</span>
+        <span class="k">continue</span>
+        
+    <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">particle</span><span class="o">.</span><span class="n">part</span><span class="o">.</span><span class="n">id</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">)]</span>        
+    <span class="n">data</span>  <span class="o">=</span> <span class="n">particle</span><span class="o">.</span><span class="n">energy</span>
+    
+    <span class="n">xyz</span> <span class="o">=</span> <span class="p">[</span><span class="n">meta</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="n">vox</span><span class="o">.</span><span class="n">id</span><span class="p">())</span> <span class="k">for</span> <span class="n">vox</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">as_vector</span><span class="p">()]</span>
+    <span class="n">xyz</span> <span class="o">=</span> <span class="p">[[</span><span class="n">pt</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">z</span><span class="p">]</span> <span class="k">for</span> <span class="n">pt</span> <span class="ow">in</span> <span class="n">xyz</span><span class="p">]</span>
+    <span class="n">xyz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span>
+
+    <span class="n">energy</span> <span class="o">=</span> <span class="p">[</span><span class="n">vox</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="k">for</span> <span class="n">vox</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">as_vector</span><span class="p">()]</span>
+    <span class="n">energy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">energy</span><span class="p">)</span>
+
+    <span class="n">traces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter3d</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">xyz</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="o">=</span><span class="n">xyz</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">z</span><span class="o">=</span><span class="n">xyz</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span>
+                               <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span>
+                               <span class="n">name</span><span class="o">=</span><span class="s1">&#39;ID </span><span class="si">%d</span><span class="s1"> PDG </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">particle</span><span class="o">.</span><span class="n">part</span><span class="o">.</span><span class="n">id</span><span class="p">,</span><span class="n">particle</span><span class="o">.</span><span class="n">part</span><span class="o">.</span><span class="n">pdg</span><span class="p">),</span>
+                               <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.3</span><span class="p">),</span>
+                              <span class="p">)</span>
+                 <span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">traces</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_38953</span><span class="o">/</span><span class="mf">747547614.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">traces</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="k">for</span> <span class="n">particle</span> <span class="ow">in</span> <span class="n">label</span><span class="o">.</span><span class="n">Particles</span><span class="p">():</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="k">if</span> <span class="n">particle</span><span class="o">.</span><span class="n">part</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">supera</span><span class="o">.</span><span class="n">kShapeLEScatter</span><span class="p">:</span>
+
+<span class="ne">NameError</span>: name &#39;label&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "DeepLearnPhysics/edep2supera",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Output.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Understanding the Output</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By SLAC Neutrino Group<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
