@@ -1,0 +1,13 @@
+format: jb-book
+root: index
+options:
+  caption: edep2supera
+chapters:
+- file: Introduction.md
+  title: Introduction
+- file: QuickStart.md
+  title: Quick Start
+- file: Output.md
+  title: Output
+- file: HowItWorks.md
+  title: How It Works

@@ -1,0 +1,7 @@
+*~
+*.npz
+*.h5
+*.root
+*.root.*
+*.ipynb_checkpoints
+book/_build
